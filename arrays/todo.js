@@ -21,12 +21,14 @@ const todos = [
     }
 ]
 
-const deleteTodo = function(todos, text){
-    const index = todos.findIndex(function(item, index){
-        return item.text.toLowerCase() === text.toLowerCase()
+const deleteTodo = function(todos, todoText){
+    const index = todos.findIndex(function(item){
+        return item.text.toLowerCase() === todoText.toLowerCase()
     })
 
-    todos.splice(index, 1)
+    if(index > -1) {
+        todos.splice(index, 1)
+    }
 }
 
 
