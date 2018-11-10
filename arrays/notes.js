@@ -13,22 +13,24 @@ const notes = [
     }
 ]
 
-const lol = function (arr)
-{
-    arr.push('lol')
-}
-
-let myArr = ['foo', 'bar']
-lol(myArr)
-console.log(myArr)
-console.log('----')
-
 
 const findNote = function (notes, noteTitle) {
-    return notes.find(function (note){
+    return notes.find(function (note) {
         return note.title.toLowerCase() === noteTitle.toLowerCase()
     })
 }
+
+const findNotes = function (notes, query) {    
+    query = query.toLowerCase()
+    return notes.filter(function (note, index) {
+        const isTitleMatch = note.title.toLowerCase().includes(query)
+        const isBodyMatch = note.body.toLowerCase().includes(query)
+
+        return  isTitleMatch || isBodyMatch
+    })
+}
+
+console.log(findNotes(notes, 'ex'))
 
 /*
 const findNote = function (notes, noteTitle) {
