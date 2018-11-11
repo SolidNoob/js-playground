@@ -8,12 +8,14 @@
 
         <input id="search-text" type="text" placeholder="Filter notes">
         
+        <select id="filter-by">
+            <option value="byEdited">Sort by last edited</option>
+            <option value="byCreated">Sort by recently created</option>
+            <option value="alphabetical">Sort by alphabetically</option>
+        </select>
+
         <div id="notes"></div>
         <button id="create-note">Create note</button>
-        
-        <label>
-            <input id="for-fun" type="checkbox"> Check me for fun
-        </label>
         
         <script src="note-app.js"></script>
     </body>
