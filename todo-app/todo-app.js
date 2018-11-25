@@ -1,4 +1,5 @@
-const todos = [
+let todos = [
+    /*
     {
         text: 'Iron my shirts', 
         completed: false
@@ -19,11 +20,17 @@ const todos = [
         text: 'Play piano',
         completed: true
     }
+    */
 ]
 
 const filters = {
     searchText: '',
     hideCompleted: false
+}
+
+const todosJSON = localStorage.getItem('todos')
+if(todosJSON !== null) {
+    todos = JSON.parse(todosJSON)
 }
 
 const renderTodos = function (todos, filters) {   
@@ -73,6 +80,7 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
         text: e.target.elements.todoText.value,
         completed: false
     })
+    localStorage.setItem('todos', JSON.stringify(todos))
     renderTodos(todos, filters)
     e.target.elements.todoText.value = ''
 })
